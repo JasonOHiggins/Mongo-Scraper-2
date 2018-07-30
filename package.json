@@ -1,0 +1,32 @@
+{
+  "name": "mongo-scraper-2",
+  "version": "1.0.0",
+  "description": "NYT article scraper",
+  "main": "index.js",
+  "scripts": {
+    "test": "scrape"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonOHiggins/Mongo-Scraper-2.git"
+  },
+  "keywords": [
+    "article",
+    "scrape",
+    "nyt"
+  ],
+  "author": "Jason O'Higgins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasonOHiggins/Mongo-Scraper-2/issues"
+  },
+  "homepage": "https://github.com/JasonOHiggins/Mongo-Scraper-2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.2.5",
+    "request": "^2.87.0"
+  }
+}
