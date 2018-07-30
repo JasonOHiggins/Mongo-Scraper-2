@@ -12,6 +12,9 @@ var app = express();
 //Express Router
 var router = express.Router();
 
+//routes file passes router object
+require("./config/routes")(router);
+
 app.use(express.static(__dirname + "/public"));
 
 //connect handlebars to express
