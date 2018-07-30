@@ -1,4 +1,7 @@
 var express = require("express");
+var mongoose = require("mongoose");
+var expressHandlebars = require("express-handlebars");
+var bodyParser = require("body-parser");
 
 //setup port
 var PORT = process.env.PORT || 3000;
@@ -9,9 +12,32 @@ var app = express();
 //Express Router
 var router = express.Router();
 
-app.use(express.static(_dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
+
+//connect handlebars to express
+app.engine("handlebars", expressHandlebars({
+    defaultLayout: "main"
+}));
+
+//bodyparser
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 app.use(router);
+
+//if deployed use deployed DB, otherwise use local DB
+var db = process.env.MONGO_URI || "mongodb://localhost/mongoHeadlines";
+
+//connect mongoose to DB
+mongoose.connect(db, function(error) {
+    if (error) {
+        console.log(error);
+    }
+    else {
+        console.log("mongoose connection is successful");
+    }
+});
 
 
 //listen on port
